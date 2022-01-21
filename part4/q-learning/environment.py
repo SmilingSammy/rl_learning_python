@@ -37,7 +37,8 @@ class Env(tk.Tk):
         self.rectangle = canvas.create_image(50, 50, image=self.shapes[0])
         self.triangle1 = canvas.create_image(250, 150, image=self.shapes[1])
         self.triangle2 = canvas.create_image(150, 250, image=self.shapes[1])
-        self.triangle3 = canvas.create_image(350, 350, image=self.shapes[1])
+        self.triangle3 = canvas.create_image(250, 350, image=self.shapes[1])
+        self.triangle4 = canvas.create_image(350, 50, image=self.shapes[1])
         self.circle = canvas.create_image(250, 250, image=self.shapes[2])
 
         canvas.pack()
@@ -126,7 +127,8 @@ class Env(tk.Tk):
             done = True
         elif next_state in [self.canvas.coords(self.triangle1),
                             self.canvas.coords(self.triangle2),
-                            self.canvas.coords(self.triangle3)]:
+                            self.canvas.coords(self.triangle3),
+                            self.canvas.coords(self.triangle4)]:
             reward = -100
             done = True
         else:
