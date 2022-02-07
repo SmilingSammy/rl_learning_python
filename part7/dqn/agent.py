@@ -37,7 +37,7 @@ class DQN(tf.keras.Model):
 # 브레이크아웃 예제에서의 DQN 에이전트
 class DQNAgent:
     def __init__(self, action_size, state_size=(84, 84, 4)):
-        self.render = False
+        self.render = True
 
         # 상태와 행동의 크기 정의
         self.state_size = state_size
@@ -205,9 +205,9 @@ if __name__ == "__main__":
 
             agent.avg_q_max += np.amax(agent.model(np.float32(history / 255.))[0])
 
-            if start_life > info['ale.lives']:
+            if start_life > info['lives']:
                 dead = True
-                start_life = info['ale.lives']
+                start_life = info['lives']
 
             score += reward
             reward = np.clip(reward, -1., 1.)
